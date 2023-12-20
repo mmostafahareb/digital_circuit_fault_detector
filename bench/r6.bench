@@ -1,0 +1,57 @@
+# Complex Random Bench File 6
+# 12 inputs, 7 outputs, 20 gates
+
+INPUT(1)
+INPUT(2)
+INPUT(3)
+INPUT(4)
+INPUT(5)
+INPUT(6)
+INPUT(7)
+INPUT(8)
+INPUT(9)
+INPUT(10)
+INPUT(11)
+INPUT(12)
+
+OUTPUT(40)
+OUTPUT(41)
+OUTPUT(42)
+OUTPUT(43)
+OUTPUT(44)
+OUTPUT(45)
+OUTPUT(46)
+
+# Gate Logic
+13 = AND(1, 2)
+14 = OR(2, 3)
+15 = XOR(3, 4)
+16 = NAND(4, 5)
+17 = NOR(5, 6)
+18 = XNOR(6, 7)
+19 = NAND(7, 8)
+20 = OR(8, 9)
+21 = XOR(9, 10)
+22 = AND(10, 11)
+23 = OR(11, 12)
+24 = NAND(12, 1)
+25 = XOR(13, 14)
+26 = AND(15, 16)
+27 = OR(16, 17)
+28 = NAND(17, 18)
+29 = XOR(18, 19)
+30 = AND(19, 20)
+31 = NOR(20, 21)
+32 = NAND(21, 22)
+
+# Output Logic
+40 = XOR(22, 23)
+41 = AND(23, 24)
+42 = OR(24, 25)
+43 = NAND(25, 26)
+44 = XOR(26, 27)
+45 = AND(27, 28)
+46 = OR(28, 29)
+
+# Note: Inputs 2, 3, 4, 5, 6, and 12 are common to multiple gates.
+# Input 6 is common to five gates (17, 18, 27, 29, 30).

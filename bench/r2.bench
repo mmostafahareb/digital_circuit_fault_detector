@@ -1,0 +1,17 @@
+# Random Bench File 2
+# 2 inputs, 2 outputs, 4 gates
+
+INPUT(1)
+INPUT(2)
+
+OUTPUT(10)
+OUTPUT(11)
+
+# Gate Logic
+4 = OR(1, 2)
+5 = XOR(1, 4)
+6 = AND(2, 4)
+7 = NOR(5, 6)
+
+10 = XOR(6, 7)
+11 = NAND(4, 5)
