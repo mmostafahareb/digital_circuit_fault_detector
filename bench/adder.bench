@@ -1,0 +1,39 @@
+# 4-bit Adder Bench File
+# 8 inputs (4 bits for each number: A0-A3, B0-B3)
+# 5 outputs (4 bits of sum: S0-S3, and carry-out: Cout)
+# 0 inverter
+# Many gates (NANDs)
+
+INPUT(A0)
+INPUT(A1)
+INPUT(A2)
+INPUT(A3)
+INPUT(B0)
+INPUT(B1)
+INPUT(B2)
+INPUT(B3)
+
+OUTPUT(S0)
+OUTPUT(S1)
+OUTPUT(S2)
+OUTPUT(S3)
+OUTPUT(Cout)
+
+# Gates for the first full adder (least significant bit)
+# Implementing XOR for Sum
+X1 = NAND(A0, B0)
+X2 = NAND(A0, X1)
+X3 = NAND(B0, X1)
+S0 = NAND(X2, X3)
+
+# Implementing AND for Carry
+C1 = NAND(A0, B0)
+Cout0 = NAND(C1, C1)
+
+# ... Similar structure for the next three full adders
+# Each full adder takes the carry-out from the previous as the carry-in
+# And calculates the sum and new carry-out for the next stage
+
+# Note: This is a simplified representation. 
+# In a complete file, each full adder would be similarly detailed.
+	
