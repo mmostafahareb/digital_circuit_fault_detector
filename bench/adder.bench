@@ -1,39 +1,48 @@
-# 4-bit Adder Bench File
-# 8 inputs (4 bits for each number: A0-A3, B0-B3)
-# 5 outputs (4 bits of sum: S0-S3, and carry-out: Cout)
+# 2-bit Adder Bench File
+# 4 inputs (2 bits for each number: 1-2 for first number, 3-4 for second number)
+# 3 outputs (2 bits of sum: 11-12, and carry-out: 13)
 # 0 inverter
 # Many gates (NANDs)
 
-INPUT(A0)
-INPUT(A1)
-INPUT(A2)
-INPUT(A3)
-INPUT(B0)
-INPUT(B1)
-INPUT(B2)
-INPUT(B3)
+INPUT(1)
+INPUT(2)
+INPUT(3)
+INPUT(4)
 
-OUTPUT(S0)
-OUTPUT(S1)
-OUTPUT(S2)
-OUTPUT(S3)
-OUTPUT(Cout)
+OUTPUT(11)
+OUTPUT(12)
+OUTPUT(13)
 
-# Gates for the first full adder (least significant bit)
-# Implementing XOR for Sum
-X1 = NAND(A0, B0)
-X2 = NAND(A0, X1)
-X3 = NAND(B0, X1)
-S0 = NAND(X2, X3)
 
-# Implementing AND for Carry
-C1 = NAND(A0, B0)
-Cout0 = NAND(C1, C1)
+101 = NAND(1, 3)
+102 = NAND(1, 101)
+103 = NAND(3, 101)
+104 = NAND(102, 103)
+11 = NAND(104, 104)  # Sum bit 0
 
-# ... Similar structure for the next three full adders
-# Each full adder takes the carry-out from the previous as the carry-in
-# And calculates the sum and new carry-out for the next stage
+105 = NAND(1, 3)
+106 = NAND(105, 105)
+107 = NAND(106, 106)  # Carry bit 0
 
-# Note: This is a simplified representation. 
-# In a complete file, each full adder would be similarly detailed.
-	
+
+108 = NAND(2, 4)
+109 = NAND(2, 108)
+110 = NAND(4, 108)
+111 = NAND(109, 110)
+112 = NAND(111, 107) 
+113 = NAND(111, 112)
+114 = NAND(107, 112)
+115 = NAND(113, 114)
+12 = NAND(115, 115)  
+
+116 = NAND(2, 4)
+117 = NAND(116, 116)
+118 = NAND(117, 117) 
+119 = NAND(111, 107)
+120 = NAND(119, 119)
+121 = NAND(120, 120) 
+
+122 = NAND(118, 121)
+123 = NAND(118, 122)
+124 = NAND(121, 122)
+13 = NAND(123, 124) 
